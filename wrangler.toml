@@ -7,3 +7,4 @@ directory = "./public"
 
 [[routes]]
 pattern = "blp.sh/*"
+zone_name = "blp.sh"

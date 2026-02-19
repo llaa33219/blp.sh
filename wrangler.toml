@@ -6,5 +6,5 @@ compatibility_date = "2024-10-01"
 directory = "./public"
 
 [[routes]]
-pattern = "blp.sh/*"
+pattern = "blp.sh"
 zone_name = "blp.sh"

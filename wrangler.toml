@@ -2,8 +2,8 @@ name = "blp-sh"
 main = "src/index.js"
 compatibility_date = "2024-10-01"
 
-[site]
-bucket = "./public"
+[assets]
+directory = "./public"
 
 [[routes]]
 pattern = "blp.sh/*"

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-adsense-account" content="ca-pub-8053045122194729">
+
+  <title>개인정보처리방침 — BLOUplanet</title>
+  <meta name="description" content="BLOUplanet(blp.sh) 개인정보처리방침. 개인정보의 수집, 이용, 보호에 관한 정책을 안내합니다.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://blp.sh/privacy.html">
+
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'CloudSansCode';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408@1.0/goorm-sans-code.woff2') format('woff2');
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    :root {
+      --primary-50: #eef6ff;
+      --primary-100: #b9d6fd;
+      --primary-500: #007BFF;
+      --primary-600: #005BDD;
+      --primary-700: #193694;
+
+      --secondary-50: #e3ffe3;
+      --secondary-500: #00d200;
+      --secondary-600: #00a100;
+
+      --white: #ffffff;
+      --gray-50: #fafafa;
+      --gray-100: #f5f5f5;
+      --gray-200: #e8e8e8;
+      --gray-300: #d6d6d6;
+      --gray-400: #a6a6a6;
+      --gray-500: #757575;
+      --gray-600: #575757;
+      --gray-700: #454545;
+      --gray-800: #2b2b2b;
+      --gray-900: #1c1c1c;
+
+      --success: #00ef38;
+      --warning: #ffdd00;
+      --error: #df0013;
+      --info: #c9c9c9;
+
+      --font-primary: 'CloudSansCode', sans-serif;
+      --font-mono: 'Google Sans Code', monospace;
+
+      --text-display: 72px;
+      --text-h1: 56px;
+      --text-h2: 36px;
+      --text-h3: 28px;
+      --text-h4: 24px;
+      --text-h5: 20px;
+      --text-h6: 18px;
+      --text-body-xl: 20px;
+      --text-body-lg: 30px;
+      --text-body: 22px;
+      --text-body-sm: 16px;
+      --text-caption: 12px;
+
+      --font-light: 300;
+      --font-regular: 400;
+      --font-medium: 500;
+      --font-semibold: 600;
+      --font-bold: 700;
+      --font-extrabold: 800;
+
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 80px;
+      --space-5xl: 96px;
+      --space-6xl: 128px;
+
+      --shadow-xs: 8px 8px 0px rgba(0, 0, 0, 0.2);
+      --shadow-sm: 2px 2px 0px rgba(0, 0, 0, 0.2);
+      --shadow-md: 4px 4px 0px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 10px 10px 0px rgba(0, 0, 0, 0.2);
+      --shadow-xl: 20px 20px 0px rgba(0, 0, 0, 0.2);
+      --shadow-2xl: 25px 25px 0px rgba(0, 0, 0, 0.2);
+
+      --radius-sm: 14px;
+      --radius-md: 20px;
+      --radius-lg: 26px;
+      --radius-xl: 30px;
+      --radius-full: 9999px;
+
+      --container-max-width: 800px;
+      --container-padding: var(--space-xl);
+
+      --duration-fast: 0.15s;
+      --duration-normal: 0.3s;
+      --duration-slow: 0.5s;
+      --easing: ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-primary);
+      background: var(--white);
+      color: var(--gray-800);
+      line-height: 1.6;
+      font-size: var(--text-body);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .nav-inner {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      text-decoration: none;
+      color: var(--primary-500);
+      font-weight: var(--font-bold);
+      font-size: var(--text-h4);
+    }
+
+    .nav-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+    }
+
+    .nav-back {
+      text-decoration: none;
+      color: var(--gray-600);
+      font-size: var(--text-body-sm);
+      font-weight: var(--font-medium);
+      padding: 6px var(--space-sm);
+      border-radius: var(--radius-sm);
+      transition: all var(--duration-fast) var(--easing);
+    }
+
+    .nav-back:hover {
+      color: var(--primary-500);
+      background: var(--primary-50);
+    }
+
+    .content {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: var(--space-2xl) var(--container-padding) var(--space-4xl);
+    }
+
+    h1 {
+      font-size: var(--text-h1);
+      font-weight: var(--font-bold);
+      color: var(--gray-900);
+      margin-bottom: var(--space-sm);
+      line-height: 1.3;
+    }
+
+    .updated {
+      font-size: var(--text-body-sm);
+      color: var(--gray-400);
+      margin-bottom: var(--space-2xl);
+    }
+
+    h2 {
+      font-size: var(--text-h3);
+      font-weight: var(--font-semibold);
+      color: var(--gray-900);
+      margin-top: var(--space-2xl);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    h3 {
+      font-size: var(--text-h6);
+      font-weight: var(--font-semibold);
+      color: var(--gray-800);
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-sm);
+    }
+
+    p {
+      color: var(--gray-600);
+      margin-bottom: var(--space-md);
+    }
+
+    ul, ol {
+      color: var(--gray-600);
+      margin-bottom: var(--space-md);
+      padding-left: var(--space-lg);
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    a {
+      color: var(--primary-500);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--primary-600);
+      text-decoration: underline;
+    }
+
+    .footer {
+      padding: var(--space-2xl) 0;
+      border-top: 1px solid var(--gray-200);
+      background: var(--gray-50);
+    }
+
+    .footer-inner {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: var(--text-body-sm);
+      color: var(--gray-500);
+    }
+
+    .footer-left img {
+      width: 24px;
+      height: 24px;
+      border-radius: var(--radius-full);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: var(--space-lg);
+    }
+
+    .footer-links a {
+      font-size: var(--text-body-sm);
+      color: var(--gray-500);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-500);
+    }
+
+    @media (max-width: 1023px) {
+      .content {
+        padding: var(--space-2xl) var(--container-padding) var(--space-3xl);
+      }
+    }
+
+    @media (max-width: 639px) {
+      :root {
+        --text-h1: 36px;
+        --text-h2: 28px;
+        --text-h3: 24px;
+        --container-padding: var(--space-md);
+      }
+
+      .content {
+        padding: var(--space-xl) var(--container-padding) var(--space-3xl);
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="https://avatars.githubusercontent.com/u/147328072?v=4" alt="BLOUplanet">
+        BLOUplanet
+      </a>
+      <a href="/" class="nav-back">← 메인으로</a>
+    </div>
+  </nav>
+
+  <main class="content">
+    <h1>개인정보처리방침</h1>
+    <p class="updated">최종 업데이트: 2026년 2월</p>
+
+    <p>
+      BLOUplanet(이하 "운영자")은 이용자의 개인정보를 중요하게 생각하며, 
+      개인정보 보호 관련 법령을 준수하고 있습니다. 본 개인정보처리방침은 
+      blp.sh 웹사이트(이하 "본 사이트")에서의 개인정보 처리에 관한 사항을 안내합니다.
+    </p>
+
+    <h2>1. 수집하는 개인정보 항목</h2>
+    <p>본 사이트는 기본적으로 별도의 회원가입 절차 없이 서비스를 제공하며, 다음과 같은 정보가 자동으로 수집될 수 있습니다:</p>
+    <ul>
+      <li>접속 IP 주소</li>
+      <li>브라우저 종류 및 버전</li>
+      <li>운영체제 정보</li>
+      <li>접속 일시 및 방문 페이지</li>
+      <li>쿠키(Cookie) 정보</li>
+    </ul>
+
+    <h2>2. 개인정보의 수집 및 이용 목적</h2>
+    <p>수집된 정보는 다음의 목적으로 활용됩니다:</p>
+    <ul>
+      <li>웹사이트의 원활한 운영 및 서비스 제공</li>
+      <li>이용 통계 분석 및 서비스 개선</li>
+      <li>부정 이용 방지 및 보안 유지</li>
+      <li>광고 서비스 제공(Google AdSense 등)</li>
+    </ul>
+
+    <h2>3. 쿠키(Cookie)의 사용</h2>
+    <p>
+      본 사이트는 이용자의 편의를 위해 쿠키를 사용할 수 있습니다. 
+      쿠키는 웹사이트 서버가 이용자의 브라우저에 보내는 소량의 데이터로, 
+      이용자의 컴퓨터에 저장됩니다.
+    </p>
+    <h3>쿠키의 사용 목적</h3>
+    <ul>
+      <li>이용자의 방문 빈도, 이용 형태 등을 분석하여 서비스 개선</li>
+      <li>맞춤형 광고 제공 (Google AdSense)</li>
+    </ul>
+    <h3>쿠키 거부 방법</h3>
+    <p>
+      이용자는 브라우저 설정을 통해 쿠키 저장을 거부하거나 삭제할 수 있습니다. 
+      다만, 쿠키를 거부할 경우 일부 서비스 이용에 제한이 있을 수 있습니다.
+    </p>
+
+    <h2>4. 광고 서비스</h2>
+    <p>
+      본 사이트는 Google AdSense를 통한 광고를 게재할 수 있습니다. 
+      Google AdSense는 이용자의 관심사에 맞는 광고를 제공하기 위해 
+      쿠키를 사용할 수 있으며, 이에 대한 자세한 정보는 
+      <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">
+        Google 광고 정책
+      </a>에서 확인하실 수 있습니다.
+    </p>
+    <p>
+      이용자는 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">
+        Google 광고 설정
+      </a>에서 맞춤형 광고를 비활성화할 수 있습니다.
+    </p>
+
+    <h2>5. 제3자 제공</h2>
+    <p>
+      운영자는 이용자의 개인정보를 원칙적으로 제3자에게 제공하지 않습니다. 
+      다만, 다음의 경우에는 예외로 합니다:
+    </p>
+    <ul>
+      <li>이용자가 사전에 동의한 경우</li>
+      <li>법령에 의해 요구되는 경우</li>
+      <li>서비스 제공을 위해 필수적인 경우 (예: 광고 서비스 제공업체)</li>
+    </ul>
+
+    <h2>6. 개인정보의 보유 및 파기</h2>
+    <p>
+      수집된 개인정보는 수집 목적이 달성되면 지체 없이 파기합니다. 
+      자동 수집된 로그 정보는 최대 1년간 보관 후 파기합니다.
+    </p>
+
+    <h2>7. 이용자의 권리</h2>
+    <p>이용자는 다음과 같은 권리를 행사할 수 있습니다:</p>
+    <ul>
+      <li>개인정보 열람 요청</li>
+      <li>개인정보 수정 또는 삭제 요청</li>
+      <li>개인정보 처리 정지 요청</li>
+    </ul>
+    <p>
+      위 권리 행사를 위해서는 아래 연락처로 문의해 주시기 바랍니다.
+    </p>
+
+    <h2>8. 개인정보 보호책임자</h2>
+    <ul>
+      <li>이름: BLOUplanet</li>
+      <li>웹사이트: <a href="https://blp.sh">blp.sh</a></li>
+      <li>GitHub: <a href="https://github.com/llaa33219" target="_blank" rel="noopener noreferrer">github.com/llaa33219</a></li>
+    </ul>
+
+    <h2>9. 개인정보처리방침의 변경</h2>
+    <p>
+      본 개인정보처리방침은 법령, 정책, 보안 기술의 변경에 따라 
+      내용이 추가, 삭제 및 수정될 수 있습니다. 변경 사항은 
+      본 페이지를 통해 공지합니다.
+    </p>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <img src="https://avatars.githubusercontent.com/u/147328072?v=4" alt="BLOUplanet">
+        <span>© 2023–2026 BLOUplanet. All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="/">메인 페이지</a>
+        <a href="https://github.com/llaa33219" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

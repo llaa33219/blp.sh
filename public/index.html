@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-adsense-account" content="ca-pub-8053045122194729">
-  <title>BLOUplanet</title>
+
+  <title>BLOUplanet — 웹 도구, AI/ML, 오픈소스 개발</title>
+  <meta name="description" content="BLOUplanet은 대한민국 기반의 독립 개발자로, 웹 도구, AI/ML 모델, 오픈소스 프로젝트를 개발합니다. 30개 이상의 웹 서비스, 17개의 AI 모델, 236개 이상의 GitHub 저장소를 운영하고 있습니다.">
+  <meta name="keywords" content="BLOUplanet, bloupla.net, 웹 도구, AI, 머신러닝, 오픈소스, 개발자, 한국, GIF 변환, 유니코드, SPH 시뮬레이션, HuggingFace, GitHub">
+  <meta name="author" content="BLOUplanet">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://blp.sh">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BLOUplanet — 웹 도구, AI/ML, 오픈소스 개발">
+  <meta property="og:description" content="대한민국 기반 독립 개발자 BLOUplanet. 30개 이상의 웹 서비스, 17개의 AI 모델, 236개 이상의 GitHub 저장소 운영.">
+  <meta property="og:url" content="https://blp.sh">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/147328072?v=4">
+  <meta property="og:locale" content="ko_KR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BLOUplanet — 웹 도구, AI/ML, 오픈소스 개발">
+  <meta name="twitter:description" content="대한민국 기반 독립 개발자 BLOUplanet. 웹 도구, AI 모델, 오픈소스 프로젝트 개발.">
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/147328072?v=4">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "BLOUplanet",
+    "url": "https://blp.sh",
+    "image": "https://avatars.githubusercontent.com/u/147328072?v=4",
+    "description": "대한민국 기반의 독립 개발자. 웹 도구, AI/ML 모델, 오픈소스 프로젝트 개발.",
+    "sameAs": [
+      "https://github.com/llaa33219",
+      "https://huggingface.co/llaa33219",
+      "https://x.com/blouplanet",
+      "https://www.youtube.com/@llaa33219",
+      "https://bloupla.net",
+      "https://pixai.art/en/@llaa33219/artworks"
+    ],
+    "jobTitle": "Independent Developer",
+    "knowsAbout": ["Web Development", "AI/ML", "Open Source", "Physics Simulation"],
+    "nationality": {
+      "@type": "Country",
+      "name": "South Korea"
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'CloudSansCode';
@@ -14,7 +59,6 @@
     }
 
     :root {
-      /* Colors */
       --primary-50: #eef6ff;
       --primary-100: #b9d6fd;
       --primary-500: #007BFF;
@@ -42,7 +86,6 @@
       --error: #df0013;
       --info: #c9c9c9;
 
-      /* Typography */
       --font-primary: 'CloudSansCode', sans-serif;
       --font-mono: 'Google Sans Code', monospace;
 
@@ -66,7 +109,6 @@
       --font-bold: 700;
       --font-extrabold: 800;
 
-      /* Spacing (8px based) */
       --space-xs: 4px;
       --space-sm: 8px;
       --space-md: 16px;
@@ -78,7 +120,6 @@
       --space-5xl: 96px;
       --space-6xl: 128px;
 
-      /* Shadows (Hard Shadow - Neobrutalism) */
       --shadow-xs: 8px 8px 0px rgba(0, 0, 0, 0.2);
       --shadow-sm: 2px 2px 0px rgba(0, 0, 0, 0.2);
       --shadow-md: 4px 4px 0px rgba(0, 0, 0, 0.2);
@@ -86,18 +127,15 @@
       --shadow-xl: 20px 20px 0px rgba(0, 0, 0, 0.2);
       --shadow-2xl: 25px 25px 0px rgba(0, 0, 0, 0.2);
 
-      /* Border Radius */
       --radius-sm: 14px;
       --radius-md: 20px;
       --radius-lg: 26px;
       --radius-xl: 30px;
       --radius-full: 9999px;
 
-      /* Layout */
       --container-max-width: 1280px;
       --container-padding: var(--space-xl);
 
-      /* Transitions */
       --duration-fast: 0.15s;
       --duration-normal: 0.3s;
       --duration-slow: 0.5s;
@@ -110,216 +148,1254 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
     body {
       font-family: var(--font-primary);
       background-color: var(--white);
       color: var(--gray-800);
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: var(--space-3xl) var(--space-xl);
+      line-height: 1.7;
+      font-size: var(--text-body);
+      overflow-x: hidden;
     }
 
-    .container {
-      max-width: 600px;
-      width: 100%;
+    /* ── Navigation ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      box-shadow: var(--shadow-xs);
     }
 
-    .profile-header {
+    .nav-inner {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
       display: flex;
       align-items: center;
-      gap: var(--space-lg);
-      margin-bottom: var(--space-sm);
+      justify-content: space-between;
+      height: 72px;
     }
 
-    .avatar {
-      width: 200px;
-      height: 200px;
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      text-decoration: none;
+      color: var(--primary-500);
+      font-weight: var(--font-bold);
+      font-size: var(--text-h4);
+    }
+
+    .nav-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray-600);
+      font-size: var(--text-body);
+      font-weight: var(--font-bold);
+      padding: 8px 16px;
+      transition: all var(--duration-fast) var(--easing);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-500);
+    }
+
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--space-sm);
+      color: var(--gray-700);
+    }
+
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      padding: var(--space-md) var(--container-padding);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-mobile.open {
+      display: block;
+    }
+
+    .nav-mobile a {
+      display: block;
+      text-decoration: none;
+      color: var(--gray-600);
+      font-weight: var(--font-medium);
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--gray-100);
+      transition: color var(--duration-fast);
+    }
+
+    .nav-mobile a:last-child {
+      border-bottom: none;
+    }
+
+    .nav-mobile a:hover {
+      color: var(--primary-500);
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    section {
+      padding: var(--space-5xl) 0;
+    }
+
+    /* ── Animations ── */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s var(--easing), transform 0.6s var(--easing);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: var(--space-4xl) 0 var(--space-5xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--primary-50) 0%, var(--white) 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(0, 123, 255, 0.04) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 60%, rgba(0, 210, 0, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-avatar {
+      width: 130px;
+      height: 130px;
       border-radius: var(--radius-full);
       object-fit: cover;
-      flex-shrink: 0;
+      box-shadow: var(--shadow-lg);
+      border: 4px solid var(--white);
+      margin-bottom: var(--space-lg);
+      animation: float 5s ease-in-out infinite;
     }
 
-    .profile-name {
-      font-size: var(--text-h1);
+    .hero-title {
+      font-size: var(--text-display);
+      font-weight: var(--font-extrabold);
+      color: var(--gray-900);
+      margin-bottom: var(--space-md);
+      letter-spacing: -1px;
+      line-height: 1.1;
+    }
+
+    .hero-title .accent {
+      background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: var(--text-body-xl);
+      color: var(--gray-500);
+      max-width: 600px;
+      margin: 0 auto var(--space-2xl);
+      font-weight: var(--font-regular);
+      line-height: 1.6;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-2xl);
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      font-size: var(--text-h2);
       font-weight: var(--font-bold);
-      color: var(--gray-800);
+      color: var(--primary-500);
+      display: block;
       line-height: 1.2;
     }
 
-    .profile-description {
+    .hero-stat-label {
+      font-size: var(--text-body-sm);
       color: var(--gray-500);
-      font-size: var(--text-body-lg);
       font-weight: var(--font-medium);
-      margin-bottom: var(--space-2xl);
-      padding-left: 174px;
+    }
+
+    /* ── Section Headers ── */
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: var(--text-caption);
+      font-weight: var(--font-bold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--primary-500);
+      background: var(--primary-50);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-md);
     }
 
     .section-title {
-      font-size: var(--text-h5);
-      font-weight: var(--font-semibold);
-      color: var(--gray-800);
-      margin-bottom: var(--space-lg);
-      padding-bottom: var(--space-sm);
-      border-bottom: 1px solid var(--gray-200);
-      line-height: 1.4;
+      font-size: var(--text-h2);
+      font-weight: var(--font-bold);
+      color: var(--gray-900);
+      margin-bottom: var(--space-md);
+      line-height: 1.3;
     }
 
-    .links {
-      display: flex;
-      flex-direction: column;
+    .section-desc {
+      font-size: var(--text-body-xl);
+      color: var(--gray-500);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── About ── */
+    .about {
+      background: var(--gray-50);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: var(--text-h3);
+      font-weight: var(--font-bold);
+      color: var(--gray-900);
+      margin-bottom: var(--space-lg);
+      line-height: 1.3;
+    }
+
+    .about-text p {
+      color: var(--gray-600);
+      margin-bottom: var(--space-md);
+      line-height: 1.8;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: var(--space-md);
     }
 
-    .btn {
+    .about-highlight {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--duration-slow) var(--easing);
+      border: 1px solid var(--gray-200);
+    }
+
+    .about-highlight:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-highlight-icon {
+      font-size: 28px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .about-highlight-title {
+      font-weight: var(--font-semibold);
+      color: var(--gray-800);
+      font-size: var(--text-body);
+      margin-bottom: var(--space-xs);
+    }
+
+    .about-highlight-desc {
+      font-size: var(--text-body-sm);
+      color: var(--gray-500);
+      line-height: 1.5;
+    }
+
+    /* ── Projects ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .project-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+      transition: all var(--duration-slow) var(--easing);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-500), var(--secondary-500));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--duration-normal) var(--easing);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .project-card-icon {
+      font-size: 32px;
+      margin-bottom: var(--space-md);
+    }
+
+    .project-card-title {
+      font-size: var(--text-h6);
+      font-weight: var(--font-semibold);
+      color: var(--gray-800);
+      margin-bottom: var(--space-sm);
+    }
+
+    .project-card-desc {
+      font-size: var(--text-body-sm);
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    .project-card-tag {
+      display: inline-block;
+      font-size: var(--text-caption);
+      font-weight: var(--font-medium);
+      color: var(--primary-500);
+      background: var(--primary-50);
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      margin-top: var(--space-md);
+    }
+
+    /* ── AI Section ── */
+    .ai-section {
+      background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+    }
+
+    .ai-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+
+    .ai-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+      transition: all var(--duration-slow) var(--easing);
+    }
+
+    .ai-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .ai-card-badge {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 10px 20px;
-      border-radius: var(--radius-md);
-      background-color: var(--primary-500);
-      color: var(--white);
-      box-shadow: var(--shadow-xs);
-      font-size: var(--text-body);
-      font-family: var(--font-primary);
-      font-weight: var(--font-semibold);
+      gap: 6px;
+      font-size: var(--text-caption);
+      font-weight: var(--font-bold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-md);
+    }
+
+    .ai-card-badge.hf {
+      background: #FFF3CD;
+      color: #856404;
+    }
+
+    .ai-card-badge.model {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .ai-card h3 {
+      font-size: var(--text-h4);
+      font-weight: var(--font-bold);
+      color: var(--gray-900);
+      margin-bottom: var(--space-sm);
+    }
+
+    .ai-card p {
+      color: var(--gray-500);
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+
+    .ai-card-stats {
+      display: flex;
+      gap: var(--space-lg);
+    }
+
+    .ai-card-stat {
+      text-align: center;
+    }
+
+    .ai-card-stat strong {
+      display: block;
+      font-size: var(--text-h5);
+      color: var(--primary-500);
+      font-weight: var(--font-bold);
+    }
+
+    .ai-card-stat span {
+      font-size: var(--text-caption);
+      color: var(--gray-400);
+    }
+
+    /* ── Open Source ── */
+    .oss-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-lg);
+    }
+
+    .oss-repo {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
       text-decoration: none;
-      cursor: pointer;
-      transition: all var(--duration-normal) var(--easing);
-      border: none;
+      color: inherit;
+      transition: all var(--duration-slow) var(--easing);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .oss-repo:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-100);
+    }
+
+    .oss-repo-name {
+      font-weight: var(--font-semibold);
+      color: var(--gray-900);
+      font-size: var(--text-body);
+      margin-bottom: var(--space-sm);
+      display: flex;
+      align-items: center;
       gap: var(--space-sm);
     }
 
-    .btn:hover {
-      background: var(--primary-600);
-      box-shadow: var(--shadow-sm);
-      transform: translateY(6px);
+    .oss-repo-name svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      color: var(--gray-400);
     }
 
-    .btn:active {
-      background: var(--primary-700);
-      transform: translateY(8px);
-      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    .oss-repo-desc {
+      font-size: var(--text-body-sm);
+      color: var(--gray-500);
+      line-height: 1.6;
+      flex: 1;
     }
 
-    .btn-github { background-color: #24292e; }
-    .btn-github:hover { background: #3a3f46; }
-    .btn-github:active { background: #1b1f23; }
+    .oss-repo-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--gray-100);
+    }
 
-    .btn-huggingface { background-color: #FFD21E; color: var(--gray-900); }
-    .btn-huggingface:hover { background: #e6bc1b; }
-    .btn-huggingface:active { background: #cca618; }
+    .oss-repo-lang {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: var(--text-caption);
+      color: var(--gray-500);
+    }
 
-    .btn-x { background-color: #000000; }
-    .btn-x:hover { background: #2a2a2a; }
-    .btn-x:active { background: #000000; }
+    .oss-repo-lang-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: var(--radius-full);
+    }
 
-    .btn-bloupla { background-color: var(--primary-500); }
-    .btn-bloupla:hover { background: var(--primary-600); }
-    .btn-bloupla:active { background: var(--primary-700); }
+    .oss-repo-stars {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: var(--text-caption);
+      color: var(--gray-500);
+    }
 
+    .oss-summary {
+      text-align: center;
+      margin-top: var(--space-2xl);
+      padding: var(--space-2xl);
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+    }
 
-    .btn-youtube { background-color: #FF0000; }
-    .btn-youtube:hover { background: #cc0000; }
-    .btn-youtube:active { background: #990000; }
+    .oss-summary p {
+      color: var(--gray-600);
+      font-size: var(--text-body-xl);
+      line-height: 1.7;
+    }
 
-    .btn-pixai { background-color: #7C3AED; }
-    .btn-pixai:hover { background: #6d28d9; }
-    .btn-pixai:active { background: #5b21b6; }
+    .oss-summary a {
+      color: var(--primary-500);
+      font-weight: var(--font-semibold);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color var(--duration-fast);
+    }
 
-    .btn-icon {
+    .oss-summary a:hover {
+      border-bottom-color: var(--primary-500);
+    }
+
+    /* ── Links Section ── */
+    .links-section {
+      background: var(--gray-900);
+      color: var(--white);
+    }
+
+    .links-section .section-tag {
+      background: rgba(0, 123, 255, 0.15);
+    }
+
+    .links-section .section-title {
+      color: var(--white);
+    }
+
+    .links-section .section-desc {
+      color: var(--gray-400);
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      color: var(--white);
+      transition: all var(--duration-slow) var(--easing);
+    }
+
+    .link-card:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-10px);
+      box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.08);
+    }
+
+    .link-card-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+    }
+
+    .link-card-icon svg,
+    .link-card-icon img {
       width: 28px;
       height: 28px;
-      flex-shrink: 0;
+    }
+
+    .link-card-icon img {
       object-fit: contain;
     }
 
+    .link-card-text {
+      min-width: 0;
+    }
+
+    .link-card-name {
+      font-weight: var(--font-semibold);
+      font-size: var(--text-body);
+      line-height: 1.2;
+    }
+
+    .link-card-url {
+      font-size: var(--text-caption);
+      color: var(--gray-400);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      padding: var(--space-2xl) 0;
+      border-top: 1px solid var(--gray-200);
+      background: var(--gray-50);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: var(--text-body-sm);
+      color: var(--gray-500);
+    }
+
+    .footer-left img {
+      width: 24px;
+      height: 24px;
+      border-radius: var(--radius-full);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: var(--space-lg);
+    }
+
+    .footer-links a {
+      font-size: var(--text-body-sm);
+      color: var(--gray-500);
+      text-decoration: none;
+      transition: color var(--duration-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-500);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1023px) {
+      .hero-title { font-size: 48px; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .oss-content { grid-template-columns: 1fr 1fr; }
+      .links-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-content { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 639px) {
-      body {
-        padding: var(--space-2xl) var(--space-md);
+      :root {
+        --text-display: 36px;
+        --text-h1: 36px;
+        --text-h2: 28px;
+        --text-h3: 24px;
+        --container-padding: var(--space-md);
       }
 
-      .profile-header {
+      .ai-cards { grid-template-columns: 1fr; }
+
+      section {
+        padding: var(--space-3xl) 0;
+      }
+
+      .hero {
+        padding: var(--space-2xl) 0 var(--space-3xl);
+      }
+
+      .hero-subtitle { font-size: var(--text-body); }
+      .hero-stats { gap: var(--space-lg); }
+      .hero-stat-number { font-size: var(--text-h4); }
+
+      .projects-grid { grid-template-columns: 1fr; }
+      .oss-content { grid-template-columns: 1fr; }
+      .links-grid { grid-template-columns: 1fr; }
+
+      .about-highlights { grid-template-columns: 1fr; }
+
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+
+      .footer-inner {
         flex-direction: column;
         text-align: center;
-        gap: var(--space-md);
-      }
-
-      .profile-name {
-        font-size: var(--text-h3);
-      }
-
-      .profile-description {
-        padding-left: 0;
-        text-align: center;
-      }
-
-      .avatar {
-        width: 90px;
-        height: 90px;
-      }
-
-      .btn {
-        font-size: var(--text-body-sm);
-        padding: var(--space-sm) var(--space-md);
-      }
-
-      .btn-icon {
-        width: 24px;
-        height: 24px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="profile-header">
-      <img
-        class="avatar"
-        src="https://avatars.githubusercontent.com/u/147328072?v=4"
-        alt="BLOUplanet avatar"
-      />
-      <h1 class="profile-name">BLOUplanet</h1>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="https://avatars.githubusercontent.com/u/147328072?v=4" alt="BLOUplanet">
+        BLOUplanet
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">소개</a></li>
+        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#ai">AI / ML</a></li>
+        <li><a href="#opensource">오픈소스</a></li>
+        <li><a href="#links">링크</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="메뉴 열기">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     </div>
-
-    <h2 class="section-title">Related Sites / Accounts</h2>
-
-    <div class="links">
-      <a class="btn btn-github" href="https://github.com/llaa33219" target="_blank" rel="noopener noreferrer">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-        GitHub
-      </a>
-
-      <a class="btn btn-huggingface" href="https://huggingface.co/llaa33219" target="_blank" rel="noopener noreferrer">
-        <img class="btn-icon" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="" aria-hidden="true" />
-        Hugging Face
-      </a>
-
-      <a class="btn btn-x" href="https://x.com/blouplanet" target="_blank" rel="noopener noreferrer">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        X (Twitter)
-      </a>
-
-      <a class="btn btn-bloupla" href="https://bloupla.net/" target="_blank" rel="noopener noreferrer">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-        bloupla.net
-      </a>
-
-      <a class="btn btn-bloupla" href="https://kr.bloupla.net/" target="_blank" rel="noopener noreferrer">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-        kr.bloupla.net
-      </a>
-
-      <a class="btn btn-youtube" href="https://www.youtube.com/@llaa33219" target="_blank" rel="noopener noreferrer">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        YouTube
-      </a>
-
-      <a class="btn btn-pixai" href="https://pixai.art/en/@llaa33219/artworks" target="_blank" rel="noopener noreferrer">
-        <img class="btn-icon" src="data:image/svg+xml,%3csvg%20width='100%25'%20height='100%25'%20viewBox='0%200%20447%20446'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%20style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3e%3cpath%20d='M446.252,61.552L446.252,384.448C446.252,418.419%20418.671,446%20384.7,446L61.552,446C27.581,446%200,418.419%200,384.448L0,61.552C0,27.581%2027.581,0%2061.552,0L384.7,0C418.671,0%20446.252,27.581%20446.252,61.552Z'%20fill='white'/%3e%3cpath%20d='M149.417,87L149.417,146.027C149.417,148.788%20147.178,151.027%20144.417,151.027L88,151.027C85.239,151.027%2083,153.265%2083,156.027L83,220.363C83,223.124%2085.239,225.363%2088,225.363L144.417,225.363C147.178,225.363%20149.417,227.601%20149.417,230.363L149.417,356.695C149.417,359.437%20151.625,361.668%20154.367,361.695L185.126,362L214.801,362C217.562,362%20219.801,359.761%20219.801,357L219.801,299.389C219.801,296.628%20222.039,294.389%20224.801,294.389L247.23,294.389C263.791,294.389%20278.972,293.327%20285.7,291.911C319.684,284.478%20347.803,258.283%20358.154,224.301C363.329,207.487%20364.537,180.761%20360.914,163.416C352.979,124.655%20325.032,94.212%20288.287,84.655C280.007,82.531%20265.689,82%20213.763,82L154.417,82C151.655,82%20149.417,84.239%20149.417,87ZM285.355,187.487L284.913,216.015C284.871,218.746%20282.645,220.938%20279.914,220.938L157.867,220.938C155.105,220.938%20152.867,218.699%20152.867,215.938L152.867,159.566C152.867,156.805%20155.105,154.566%20157.867,154.566L280.647,154.566C283.429,154.566%20285.676,156.837%20285.647,159.619L285.355,187.487Z'%20style='fill:%237C3AED;fill-rule:nonzero;'/%3e%3c/svg%3e" alt="" aria-hidden="true" />
-        PixAI
-      </a>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#about">소개</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#ai">AI / ML</a>
+      <a href="#opensource">오픈소스</a>
+      <a href="#links">링크</a>
     </div>
-  </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <img class="hero-avatar" src="https://avatars.githubusercontent.com/u/147328072?v=4" alt="BLOUplanet" />
+      <h1 class="hero-title">
+        <span class="accent">BLOUplanet</span>
+      </h1>
+      <p class="hero-subtitle">
+        대한민국 기반의 독립 개발자 · 크리에이터<br>
+        웹 도구, AI/ML 모델, 오픈소스 프로젝트를 만듭니다
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-number">30+</span>
+          <span class="hero-stat-label">웹 서비스</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">17</span>
+          <span class="hero-stat-label">AI 모델</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">236+</span>
+          <span class="hero-stat-label">GitHub 저장소</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text fade-in">
+          <div class="section-tag">About Us</div>
+          <h3>창의적인 기술로<br>더 나은 도구를 만듭니다</h3>
+          <p>
+            BLOUplanet은 2023년부터 활동을 시작한 대한민국 기반의 독립 개발자입니다. 
+            웹 기술, 인공지능, 물리 시뮬레이션 등 다양한 분야에서 누구나 자유롭게 사용할 수 있는 
+            도구와 서비스를 개발하고 있습니다.
+          </p>
+          <p>
+            <strong>bloupla.net</strong>을 중심으로 30개 이상의 웹 서비스를 운영하며, 
+            Hugging Face에서 17개의 AI 모델을 공개하고, GitHub에서 236개 이상의 오픈소스 
+            프로젝트를 관리하고 있습니다. 모든 프로젝트는 기술적 호기심과 
+            커뮤니티 기여를 목표로 합니다.
+          </p>
+        </div>
+        <div class="about-highlights fade-in">
+          <div class="about-highlight">
+            <div class="about-highlight-icon">🌐</div>
+            <div class="about-highlight-title">웹 개발</div>
+            <div class="about-highlight-desc">JavaScript, HTML/CSS 기반의 다양한 웹 애플리케이션과 도구 개발</div>
+          </div>
+          <div class="about-highlight">
+            <div class="about-highlight-icon">🤖</div>
+            <div class="about-highlight-title">AI / ML</div>
+            <div class="about-highlight-desc">LLM 모델 학습, 모델 프루닝, AI 기반 서비스 개발 및 연구</div>
+          </div>
+          <div class="about-highlight">
+            <div class="about-highlight-icon">🔬</div>
+            <div class="about-highlight-title">시뮬레이션</div>
+            <div class="about-highlight-desc">SPH 유체 시뮬레이션, 셀룰러 오토마톤, 물리 엔진 개발</div>
+          </div>
+          <div class="about-highlight">
+            <div class="about-highlight-icon">💻</div>
+            <div class="about-highlight-title">오픈소스</div>
+            <div class="about-highlight-desc">Apache 2.0 라이선스 기반 프로젝트 공개 및 커뮤니티 기여</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">Services & Projects</div>
+        <h2 class="section-title">다양한 웹 서비스를 제공합니다</h2>
+        <p class="section-desc">
+          bloupla.net에서 누구나 무료로 사용할 수 있는 유용한 웹 도구들을 운영하고 있습니다. 
+          이미지 변환부터 물리 시뮬레이션까지, 다양한 분야를 다룹니다.
+        </p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card fade-in">
+          <div class="project-card-icon">🖼️</div>
+          <div class="project-card-title">이미지 & GIF 변환</div>
+          <div class="project-card-desc">
+            움직이는 배경화면 · 프로필 이미지 생성, 이미지를 GIF로 변환, 
+            동영상에서 이미지 추출 등 다양한 미디어 변환 도구를 제공합니다.
+          </div>
+          <span class="project-card-tag">미디어 도구</span>
+        </div>
+        <div class="project-card fade-in">
+          <div class="project-card-icon">✨</div>
+          <div class="project-card-title">유니코드 & 특수문자</div>
+          <div class="project-card-desc">
+            특수문자 검색 · 입력 도구와 AI 기반 유니코드 검색 서비스를 제공합니다. 
+            겹치는 특수문자 생성 기능도 지원합니다.
+          </div>
+          <span class="project-card-tag">텍스트 도구</span>
+        </div>
+        <div class="project-card fade-in">
+          <div class="project-card-icon">🌊</div>
+          <div class="project-card-title">SPH 유체 시뮬레이션</div>
+          <div class="project-card-desc">
+            Smoothed Particle Hydrodynamics 기반의 유체 시뮬레이션 엔진을 
+            웹 브라우저에서 직접 체험할 수 있습니다. BLOU-SPH, BeakerSPH 등을 제공합니다.
+          </div>
+          <span class="project-card-tag">시뮬레이션</span>
+        </div>
+        <div class="project-card fade-in">
+          <div class="project-card-icon">🧪</div>
+          <div class="project-card-title">Chemistry Experiment</div>
+          <div class="project-card-desc">
+            웹 브라우저에서 화학 실험을 시뮬레이션할 수 있는 인터랙티브 도구입니다. 
+            교육 목적으로 활용 가능한 실험 환경을 제공합니다.
+          </div>
+          <span class="project-card-tag">교육</span>
+        </div>
+        <div class="project-card fade-in">
+          <div class="project-card-icon">🐧</div>
+          <div class="project-card-title">Linux Web & LigOS</div>
+          <div class="project-card-desc">
+            웹 브라우저에서 TinyCore Linux를 실행하고, 자체 개발한 LigOS 환경을 
+            체험할 수 있습니다. 별도의 설치 없이 리눅스를 경험해 보세요.
+          </div>
+          <span class="project-card-tag">OS / 시스템</span>
+        </div>
+        <div class="project-card fade-in">
+          <div class="project-card-icon">🧬</div>
+          <div class="project-card-title">셀룰러 오토마톤</div>
+          <div class="project-card-desc">
+            Game of Life 변형 규칙 시뮬레이터와 다양한 셀룰러 오토마톤 규칙을 
+            탐험할 수 있는 인터랙티브 도구를 제공합니다.
+          </div>
+          <span class="project-card-tag">시뮬레이션</span>
+        </div>
+        <div class="project-card fade-in">
+          <div class="project-card-icon">🏔️</div>
+          <div class="project-card-title">Math is Terrain</div>
+          <div class="project-card-desc">
+            수학 함수를 3D 지형으로 시각화하는 도구입니다. 수학적 개념을 
+            직관적인 3D 그래픽으로 탐험할 수 있습니다.
+          </div>
+          <span class="project-card-tag">시각화</span>
+        </div>
+        <div class="project-card fade-in">
+          <div class="project-card-icon">🧱</div>
+          <div class="project-card-title">WASM Blocks</div>
+          <div class="project-card-desc">
+            WebAssembly 기반의 블록 시뮬레이션 도구입니다. 
+            고성능 웹 기술을 활용한 인터랙티브 블록 환경을 체험하세요.
+          </div>
+          <span class="project-card-tag">WebAssembly</span>
+        </div>
+        <div class="project-card fade-in">
+          <div class="project-card-icon">🛡️</div>
+          <div class="project-card-title">코드 보안 분석 & 기타</div>
+          <div class="project-card-desc">
+            코드 보안 분석 도구(Gevaar), 퀴즈 플랫폼, 이미지 공유, 이모티콘 스토어(Plakker), 
+            중세 한국어 변환기, 비디오 ASCII 아트 등 다양한 서비스를 운영합니다.
+          </div>
+          <span class="project-card-tag">유틸리티</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI & ML -->
+  <section class="ai-section" id="ai">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">AI & Machine Learning</div>
+        <h2 class="section-title">인공지능 모델을 연구하고 공개합니다</h2>
+        <p class="section-desc">
+          Hugging Face에서 다양한 AI 모델을 학습, 프루닝(경량화), 공개하고 있습니다.
+          대규모 언어 모델(LLM)부터 텍스트 생성 모델까지 다양한 연구를 진행합니다.
+        </p>
+      </div>
+      <div class="ai-cards">
+        <div class="ai-card fade-in">
+          <span class="ai-card-badge model">🧠 Language Model</span>
+          <h3>Vere1Ko</h3>
+          <p>
+            자체 학습한 360M 파라미터 규모의 텍스트 생성 모델입니다. 
+            한국어와 영어를 지원하며, 경량화된 구조로 효율적인 추론이 가능합니다. 
+            Hugging Face 컬렉션으로 관리되며 지속적으로 개선되고 있습니다.
+          </p>
+          <div class="ai-card-stats">
+            <div class="ai-card-stat">
+              <strong>360M</strong>
+              <span>Parameters</span>
+            </div>
+            <div class="ai-card-stat">
+              <strong>Text</strong>
+              <span>Generation</span>
+            </div>
+          </div>
+        </div>
+        <div class="ai-card fade-in">
+          <span class="ai-card-badge hf">✂️ Model Pruning</span>
+          <h3>Solar-Open-100B 프루닝</h3>
+          <p>
+            Upstage의 Solar-Open-100B 모델을 다양한 크기(4B, 14B, 20B, 36B)로 
+            프루닝(경량화)하는 실험을 진행하고 있습니다. 대규모 모델의 효율적 압축 기술을 
+            연구하며, 실험 결과를 오픈소스로 공개합니다.
+          </p>
+          <div class="ai-card-stats">
+            <div class="ai-card-stat">
+              <strong>100B→4B</strong>
+              <span>Pruning</span>
+            </div>
+            <div class="ai-card-stat">
+              <strong>17</strong>
+              <span>Models</span>
+            </div>
+            <div class="ai-card-stat">
+              <strong>3</strong>
+              <span>Spaces</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Source -->
+  <section id="opensource">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">Open Source</div>
+        <h2 class="section-title">오픈소스로 함께 성장합니다</h2>
+        <p class="section-desc">
+          GitHub에서 236개 이상의 공개 저장소를 관리하고 있습니다. 
+          다양한 프로젝트를 오픈소스로 공개하여 개발 커뮤니티에 기여합니다.
+        </p>
+      </div>
+      <div class="oss-content">
+        <a class="oss-repo fade-in" href="https://github.com/llaa33219/agentouto" target="_blank" rel="noopener noreferrer">
+          <div class="oss-repo-name">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            agentouto
+          </div>
+          <div class="oss-repo-desc">멀티 에이전트 Python SDK — 오케스트레이터 없이 에이전트 간 P2P 통신을 지원하는 분산 시스템</div>
+          <div class="oss-repo-meta">
+            <span class="oss-repo-lang">
+              <span class="oss-repo-lang-dot" style="background: #3572A5;"></span>
+              Python
+            </span>
+            <span class="oss-repo-stars">⭐ 1</span>
+          </div>
+        </a>
+        <a class="oss-repo fade-in" href="https://github.com/llaa33219/entryjs-spoed" target="_blank" rel="noopener noreferrer">
+          <div class="oss-repo-name">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            entryjs-spoed
+          </div>
+          <div class="oss-repo-desc">EntryJS의 실행 속도를 향상시키는 포크 프로젝트. 코딩 교육 플랫폼 엔트리의 성능 최적화에 기여합니다.</div>
+          <div class="oss-repo-meta">
+            <span class="oss-repo-lang">
+              <span class="oss-repo-lang-dot" style="background: #f1e05a;"></span>
+              JavaScript
+            </span>
+            <span class="oss-repo-stars">⭐ 7</span>
+          </div>
+        </a>
+        <a class="oss-repo fade-in" href="https://github.com/llaa33219/teleskoop" target="_blank" rel="noopener noreferrer">
+          <div class="oss-repo-name">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            teleskoop
+          </div>
+          <div class="oss-repo-desc">엔트리(Entry) 이야기에 링크 미리보기를 띄워주는 브라우저 확장 프로그램</div>
+          <div class="oss-repo-meta">
+            <span class="oss-repo-lang">
+              <span class="oss-repo-lang-dot" style="background: #f1e05a;"></span>
+              JavaScript
+            </span>
+          </div>
+        </a>
+        <a class="oss-repo fade-in" href="https://github.com/llaa33219/ai-video-style-prompt" target="_blank" rel="noopener noreferrer">
+          <div class="oss-repo-name">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            ai-video-style-prompt
+          </div>
+          <div class="oss-repo-desc">AI 영상 생성 시 일관된 스타일을 유지하기 위한 프롬프트 모음. 다양한 스타일 가이드를 제공합니다.</div>
+          <div class="oss-repo-meta">
+            <span class="oss-repo-lang">
+              <span class="oss-repo-lang-dot" style="background: #ccc;"></span>
+              Prompts
+            </span>
+          </div>
+        </a>
+        <a class="oss-repo fade-in" href="https://github.com/llaa33219/chatouto" target="_blank" rel="noopener noreferrer">
+          <div class="oss-repo-name">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            chatouto
+          </div>
+          <div class="oss-repo-desc">채팅 기반 커뮤니케이션 프로젝트. agentouto SDK와 연계된 실시간 대화 시스템을 구축합니다.</div>
+          <div class="oss-repo-meta">
+            <span class="oss-repo-lang">
+              <span class="oss-repo-lang-dot" style="background: #3572A5;"></span>
+              Python
+            </span>
+          </div>
+        </a>
+        <a class="oss-repo fade-in" href="https://github.com/llaa33219" target="_blank" rel="noopener noreferrer">
+          <div class="oss-repo-name">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            + 230개 이상의 저장소
+          </div>
+          <div class="oss-repo-desc">웹 도구, 브라우저 확장, 시뮬레이션, AI 실험 등 다양한 프로젝트를 GitHub에서 확인하세요.</div>
+          <div class="oss-repo-meta">
+            <span class="oss-repo-lang">
+              <span class="oss-repo-lang-dot" style="background: var(--primary-500);"></span>
+              다양한 언어
+            </span>
+            <span class="oss-repo-stars">GitHub 방문 →</span>
+          </div>
+        </a>
+      </div>
+      <div class="oss-summary fade-in">
+        <p>
+          모든 프로젝트는 <a href="https://github.com/llaa33219" target="_blank" rel="noopener noreferrer">GitHub</a>에서 
+          확인하실 수 있으며, 대부분 Apache 2.0 라이선스로 공개되어 
+          자유롭게 사용 · 수정 · 배포가 가능합니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Links -->
+  <section class="links-section" id="links">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">Connect</div>
+        <h2 class="section-title">연결 & 소셜</h2>
+        <p class="section-desc">
+          다양한 플랫폼에서 BLOUplanet의 활동을 확인하실 수 있습니다
+        </p>
+      </div>
+      <div class="links-grid">
+        <a class="link-card fade-in" href="https://github.com/llaa33219" target="_blank" rel="noopener noreferrer">
+          <div class="link-card-icon">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </div>
+          <div class="link-card-text">
+            <div class="link-card-name">GitHub</div>
+            <div class="link-card-url">github.com/llaa33219</div>
+          </div>
+        </a>
+        <a class="link-card fade-in" href="https://huggingface.co/llaa33219" target="_blank" rel="noopener noreferrer">
+          <div class="link-card-icon">
+            <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face">
+          </div>
+          <div class="link-card-text">
+            <div class="link-card-name">Hugging Face</div>
+            <div class="link-card-url">huggingface.co/llaa33219</div>
+          </div>
+        </a>
+        <a class="link-card fade-in" href="https://x.com/blouplanet" target="_blank" rel="noopener noreferrer">
+          <div class="link-card-icon">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </div>
+          <div class="link-card-text">
+            <div class="link-card-name">X (Twitter)</div>
+            <div class="link-card-url">x.com/blouplanet</div>
+          </div>
+        </a>
+        <a class="link-card fade-in" href="https://www.youtube.com/@llaa33219" target="_blank" rel="noopener noreferrer">
+          <div class="link-card-icon">
+            <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </div>
+          <div class="link-card-text">
+            <div class="link-card-name">YouTube</div>
+            <div class="link-card-url">youtube.com/@llaa33219</div>
+          </div>
+        </a>
+        <a class="link-card fade-in" href="https://bloupla.net/" target="_blank" rel="noopener noreferrer">
+          <div class="link-card-icon">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </div>
+          <div class="link-card-text">
+            <div class="link-card-name">bloupla.net</div>
+            <div class="link-card-url">메인 서비스 (EN)</div>
+          </div>
+        </a>
+        <a class="link-card fade-in" href="https://kr.bloupla.net/" target="_blank" rel="noopener noreferrer">
+          <div class="link-card-icon">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </div>
+          <div class="link-card-text">
+            <div class="link-card-name">kr.bloupla.net</div>
+            <div class="link-card-url">한국어 서비스</div>
+          </div>
+        </a>
+        <a class="link-card fade-in" href="https://pixai.art/en/@llaa33219/artworks" target="_blank" rel="noopener noreferrer">
+          <div class="link-card-icon">
+            <svg viewBox="0 0 24 24" fill="#7C3AED"><rect width="24" height="24" rx="5" fill="#7C3AED"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="10" font-weight="bold">P</text></svg>
+          </div>
+          <div class="link-card-text">
+            <div class="link-card-name">PixAI</div>
+            <div class="link-card-url">AI 아트 갤러리</div>
+          </div>
+        </a>
+        <a class="link-card fade-in" href="https://github.com/llaa33219" target="_blank" rel="noopener noreferrer">
+          <div class="link-card-icon">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div class="link-card-text">
+            <div class="link-card-name">Contact</div>
+            <div class="link-card-url">GitHub Issues로 문의</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <img src="https://avatars.githubusercontent.com/u/147328072?v=4" alt="BLOUplanet">
+          <span>© 2023–2026 BLOUplanet. All rights reserved.</span>
+        </div>
+        <div class="footer-links">
+          <a href="/privacy">개인정보처리방침</a>
+          <a href="#about">소개</a>
+          <a href="https://github.com/llaa33219" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var hamburger = document.getElementById('hamburger');
+      var navMobile = document.getElementById('nav-mobile');
+
+      hamburger.addEventListener('click', function() {
+        navMobile.classList.toggle('open');
+      });
+
+      navMobile.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+          navMobile.classList.remove('open');
+        }
+      });
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.fade-in').forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
+
 </body>
 </html>
